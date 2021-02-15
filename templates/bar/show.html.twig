@@ -5,15 +5,20 @@
 {% block body %}
 <div class="row">
   <div class="col-sm-6">
-  {% for beer in beers %}
     <div class="card">
       <div class="card-body">
-        <a href="{{ path('show_beer', { 'id' : beer.id }) }}"><h5 class="card-title">{{ beer.name }}</h5></a>
+        <h5 class="card-title">{{ beer.name }}</h5>
         <p class="card-text">{{ beer.description }}</p>
+        <p class="card-text">{{ beer.price / 10 }}</p>
+        <p class="card-text">{{ beer.degree / 10 }}</p>
+        <p class="card-text">{{ beer.countryId.name }}</p>
+        {% for category in beer.categories %}
+          <p>{{ category.name }}</p>
+          <p>{{ category.term }}</p>
+        {% endfor %}
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
-  {% endfor %}
   </div>
 </div>
 {% endblock %}

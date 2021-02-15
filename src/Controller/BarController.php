@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Beer;
+use App\Repository\BeerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,9 +11,10 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class BarController extends AbstractController
 {
-    public function __construct(HttpClientInterface $client)
+    public function __construct(HttpClientInterface $client, BeerRepository $beerRepo)
     {
         $this->client = $client;
+        $this->beerRepo = $beerRepo;
     }
 
     /**
@@ -19,7 +22,19 @@ class BarController extends AbstractController
      */
     public function index(): Response
     {   
-        return $this->render('bar/index.html.twig');
+        $beers = $this->beerRepo->findById();
+
+        return $this->render('bar/index.html.twig', compact('beers'));
+    }
+
+    /**
+     * @Route("/beer/{id}", name="show_beer")
+     */
+    public function showBeer($id): Response
+    {   
+        $beer = $this->beerRepo->find($id);
+
+        return $this->render('bar/show.html.twig', compact('beer'));
     }
 
     /**

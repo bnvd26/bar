@@ -21,7 +21,8 @@ class BeerFixtures extends BaseFixture implements DependentFixtureInterface
             ->setDescription($this->faker->text($maxNbChars = 200))
             ->setPrice(rand(10, 200))
             ->setDegree(rand(10, 100))
-            ->setPublishedAt($this->faker->dateTime($max = 'now', $timezone = null));
+            ->setPublishedAt($this->faker->dateTime($max = 'now', $timezone = null))
+            ->addCategory($this->getReference('category-' . rand(0, 2)));
 
             return $beer;
         });
@@ -32,7 +33,8 @@ class BeerFixtures extends BaseFixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return array(
-            CountryFixtures::class
+            CountryFixtures::class,
+            CategoryFixtures::class,
         );
     }
 }
