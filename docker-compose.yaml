@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: digitalocean.com/php
+
     container_name: app
     restart: unless-stopped
     tty: true
@@ -43,7 +43,7 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: neymo
+      MYSQL_DATABASE: barTP
       MYSQL_ROOT_USERNAME: root
       MYSQL_ROOT_PASSWORD: root
       SERVICE_TAGS: dev
