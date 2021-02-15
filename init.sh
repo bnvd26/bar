@@ -8,3 +8,5 @@ echo '4/5'
 docker container exec app php bin/console d:s:u --force
 echo '5/5'
 docker container exec app php bin/console d:f:l --no-interaction
+echo '6/6'
+docker container exec app npm run dev
