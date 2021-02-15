@@ -34,6 +34,11 @@ class Category
      */
     private $beer;
 
+    /**
+     * @ORM\Column(type="string", length=100, options={"default": "normal"})
+     */
+    private $term;
+
     public function __construct()
     {
         $this->beer = new ArrayCollection();
@@ -88,6 +93,18 @@ class Category
     public function removeBeer(Beer $beer): self
     {
         $this->beer->removeElement($beer);
+
+        return $this;
+    }
+
+    public function getTerm(): ?string
+    {
+        return $this->term;
+    }
+
+    public function setTerm(string $term): self
+    {
+        $this->term = $term;
 
         return $this;
     }
