@@ -22,7 +22,7 @@ class BarController extends AbstractController
     }
 
     /**
-     * @Route("/bar", name="home")
+     * @Route("/", name="home")
      */
     public function index(): Response
     {
@@ -111,5 +111,20 @@ class BarController extends AbstractController
         $customers = $this->customerRepo->findAll();
 
         return $this->render('bar/statistics.html.twig', compact('customers'));
+    }
+
+    /**
+     * @Route("/partie-4", name="partie-4")
+     */
+    public function partie4()
+    {
+        // Ici on observe que la méthode fournit dans la partie 4 ne fonctionne pas comme il faut. 
+        // Effectivement elle devrait se trouver dans le BeerRepository car le paramètre $id est destiné
+        // à être l'id d'une biere et non pas l'id d'une categorie. 
+        // De plus le fait de mettre cette methode dans le CategoryRepository et non pas dans le BeerRepository, est faisable en soit mais porte à confusion
+        // étant donné que le paramètre qu'elle attend est l'id d'une Bière
+        // Enfin nous pensons que le fonctionnement global de cette methode était de s'assurer que la
+        // bière en question fait bien partie d'une catégorie avec le champ term = special
+        dd($this->categoryRepo->findCatSpecial(/* Saisir l'ID d'une biere et non pas d'une categorie*/));
     }
 }

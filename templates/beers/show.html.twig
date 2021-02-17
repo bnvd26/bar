@@ -9,14 +9,13 @@
       <div class="card-body">
         <h5 class="card-title">{{ beer.name }}</h5>
         <p class="card-text">{{ beer.description }}</p>
-        <p class="card-text">{{ beer.price / 10 }}</p>
-        <p class="card-text">{{ beer.degree / 10 }}</p>
-        <p class="card-text">{{ beer.countryId.name }}</p>
+        <p class="card-text">Prix : <strong>{{ beer.price / 10 }} €</strong></p>
+        <p class="card-text">Degrés : <strong>{{ beer.degree / 10 }}</strong></p>
+        <p class="card-text">Provenance : <strong>{{ beer.countryId.name }}</strong></p>
         {% for category in beer.categories %}
-          <p>{{ category.name }}</p>
-          <p>{{ category.term }}</p>
+          <p>Catégorie : <strong>{{ category.name }}</strong></p>
+          <p>Term : <strong>{{ category.term }}</strong></p>
         {% endfor %}
-        <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
   </div>

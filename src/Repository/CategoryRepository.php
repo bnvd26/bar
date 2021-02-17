@@ -32,6 +32,18 @@ class CategoryRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findCatSpecial(int $id)
+    {
+        return $this->createQueryBuilder('c')
+            ->join('c.beer', 'b') // raisonner en terme de relation
+            ->where('b.id = :id')
+            ->setParameter('id', $id)
+            ->andWhere('c.term = :term')
+            ->setParameter('term', 'special')
+            ->getQuery()
+            ->getResult();
+    }
+
     /*
     public function findOneBySomeField($value): ?Category
     {
