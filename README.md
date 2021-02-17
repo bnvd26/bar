@@ -1,7 +1,11 @@
 # bar
 
 # Lancer le projet
+
+Adapatez votre ``.env`` en fonction de la façon de lancer le projet.
 ## Si vous avez docker sur votre machine
+Copiez-coller le contenu de ``.env.docker`` dans votre ``.env``
+<br>
 Tappez la commande suivante à la racine du projet bar
 <br>
 ```sh init.sh```
@@ -9,6 +13,8 @@ Tappez la commande suivante à la racine du projet bar
 Puis rendez vous sur le http://localhost
 
 ## Si vous n'avez pas docker
+Copiez-coller le contenu de ``.env.example`` dans votre ``.env``
+<br>
 Assurez que votre version de PHP est <= 7.4
 <br>
 Assurez vous que votre fichier .env est bien configuré avec votre environnement (DATABASE_URL).
