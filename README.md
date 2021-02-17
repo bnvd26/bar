@@ -37,7 +37,7 @@ Nous avons décidez partir sur quelque chose de plus structuré pour nos Fixture
 
 # Pour la partie 1 :
 
-``
+```
 public function findCatSpecial(int $id)
 {
 return $this->createQueryBuilder('c')
@@ -49,7 +49,7 @@ return $this->createQueryBuilder('c')
 ->getQuery()
 ->getResult();
 }
-``
+```
 
 Cette fonction permet de rechercher les bières appertenant à une catégorie spéciale.
 (exemple : retrouver toutes les bières appartenant à la catégorie "bio")
