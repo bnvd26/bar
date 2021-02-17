@@ -20,18 +20,14 @@ Adapatez votre ``.env`` en fonction de la façon de lancer le projet.
     Assurez vous que votre fichier .env est bien configuré avec votre environnement (DATABASE_URL).
     <br>
     Ensuite
-    <br>
-    ```composer install```
-    <br>
-    ```php bin/console doctrine:database:create```
-    <br>
-    ```php bin/console doctrine:migrations:migrate```
-    <br>
-    ```php bin/console doctrine:fixtures:load```
-    <br>
-    <br>
-    ```npm install && npm run dev```
-    <br>
+    
+    ```
+    composer install
+    php bin/console doctrine:database:create
+    php bin/console doctrine:migrations:migrate
+    php bin/console doctrine:fixtures:load
+    npm install && npm run dev
+    ```
     Enfin lancez cette commande qui vas vous permettre de démarrer votre serveur :
     <br>
     ```symfony server:start```
