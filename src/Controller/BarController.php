@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Beer;
 use App\Repository\BeerRepository;
 use App\Repository\CategoryRepository;
+use App\Repository\CustomerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,11 +13,12 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class BarController extends AbstractController
 {
-    public function __construct(HttpClientInterface $client, BeerRepository $beerRepo, CategoryRepository $categoryRepo)
+    public function __construct(HttpClientInterface $client, BeerRepository $beerRepo, CategoryRepository $categoryRepo, CustomerRepository $customerRepo)
     {
         $this->client = $client;
         $this->beerRepo = $beerRepo;
         $this->categoryRepo = $categoryRepo;
+        $this->customerRepo = $customerRepo;
     }
 
     /**
@@ -79,4 +81,14 @@ class BarController extends AbstractController
 
         return $content ;
     }   
+
+    /**
+     * @Route("/statistics", name="statistics")
+     */
+    public function statitstics()
+    {
+        $customers = $this->customerRepo->findAll();
+
+        return $this->render('bar/statistics.html.twig', compact('customers'));
+    }
 }

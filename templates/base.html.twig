@@ -12,11 +12,7 @@
         {% endblock %}
     </head>
     <body>
-        {{render(controller('App\\Controller\\BarController:mainMenu',
-    {
-        'routeName' : app.request.attributes.get('_route'),
-        'category_id' : app.request.attributes.get('id') ?? ''
-    }))}}
+    
         {% include 'partials/menu.html.twig' %}
         <div class="container">
             <div class="row">

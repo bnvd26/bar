@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BarController!{% endblock %}
+
+{% block body %}
+
+    <p>Nombre de clients : {{ customers|length }}</p>
+
+    {% for customer in customers %}
+    <div class="card">
+        <div>
+            <p class="card-text"> Pseudo : <strong>{{ customer.name }}</strong></p>
+
+            <p class="card-text"> Age : <strong>{{ customer.age }}</strong></p>
+
+            <p class="card-text"> Nombre de bières achetées : <strong>{{ customer.numberBeer }}</strong></p>
+        </div>
+        {% for stat in customer.statistics %}
+        
+            <p class="card-text"> Nom : <strong>{{ stat.beer.name }}</strong></p>
+            <p class="card-text"> Score : <strong>{{ stat.score }}</strong></p>
+        {% endfor %}
+    </div> 
+        
+    {% endfor %}
+
+
+{% endblock %}
