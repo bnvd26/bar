@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card card__beers">
+      <div class="card-body">
+        <h2>{{ title }} - {{ category.name }} </h2>
+        <p>{{ category.description }}</p>
+        {% if((category.beer|length) > 0) %}
+        
+        <h3>Bières :</h3>
+        <ul>
+        {% for beer in category.beer %}
+            <li style="list-style-type: none;"><a href="{{ path('showBeer', { 'id' : beer.id }) }}">{{ beer.name }}</a></li> 
+            <li style="list-style-type: none;">- {{ beer.description }}</li>
+        {% endfor %}
+        </ul>
+        {% else %}
+        <p>Il ny a pas de bières pour cette catégorie</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

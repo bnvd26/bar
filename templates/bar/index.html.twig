@@ -8,7 +8,7 @@
   {% for beer in beers %}
     <div class="card">
       <div class="card-body">
-        <a href="{{ path('show_beer', { 'id' : beer.id }) }}"><h5 class="card-title">{{ beer.name }}</h5></a>
+        <a href="{{ path('showBeer', { 'id' : beer.id }) }}"><h5 class="card-title">{{ beer.name }}</h5></a>
         <p class="card-text">{{ beer.description }}</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
