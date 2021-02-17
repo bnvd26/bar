@@ -22,7 +22,7 @@ class BeerFixtures extends BaseFixture implements DependentFixtureInterface
             ->setPrice(rand(10, 200))
             ->setDegree(rand(10, 100))
             ->setPublishedAt($this->faker->dateTime($max = 'now', $timezone = null))
-            ->addCategory($this->getReference('category-' . rand(0, 2)));
+            ->addCategory(rand(0, 1) ? $this->getReference('categoryNormal-' . rand(0, 2)) : $this->getReference('categorySpecial-' . rand(0, 7)));
 
             return $beer;
         });

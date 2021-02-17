@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Beer;
 use App\Repository\BeerRepository;
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,10 +12,11 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class BarController extends AbstractController
 {
-    public function __construct(HttpClientInterface $client, BeerRepository $beerRepo)
+    public function __construct(HttpClientInterface $client, BeerRepository $beerRepo, CategoryRepository $categoryRepo)
     {
         $this->client = $client;
         $this->beerRepo = $beerRepo;
+        $this->categoryRepo = $categoryRepo;
     }
 
     /**

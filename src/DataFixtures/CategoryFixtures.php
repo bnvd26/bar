@@ -17,25 +17,28 @@ class CategoryFixtures extends BaseFixture
 
         // catégories specials
         $categoriesSpecials = ['houblon', 'rose', 'menthe', 'grenadine', 'réglisse', 'marron', 'whisky', 'bio'];
-        
-        $c = 0;
-        
-        for ($i=0; $i < count($categoriesNormals); $i++) { 
-            
-            for ($y=0; $y < count($categoriesSpecials); $y++) { 
-                
-                $category = (new Category())
-                ->setName($categoriesNormals[$i])
+  
+        $this->createMany(count($categoriesNormals), function($num) use($categoriesNormals) {
+            $category = (new Category())
+                ->setName($categoriesNormals[$num])
                 ->setDescription($this->faker->text($maxNbChars = 200))
-                ->setTerm($categoriesSpecials[$i]);
+                ->setTerm('normal');
     
-                $this->addReference('category-' . $c, $category);
+            $this->addReference('categoryNormal-' . $num, $category);
 
-                $manager->persist($category);
+            return $category;
+        });
 
-                $c++;
-            }
-        }
+        $this->createMany(count($categoriesSpecials), function($num) use($categoriesSpecials) {
+            $category = (new Category())
+                ->setName($categoriesSpecials[$num])
+                ->setDescription($this->faker->text($maxNbChars = 200))
+                ->setTerm('special');
+    
+            $this->addReference('categorySpecial-' . $num, $category);
+
+            return $category;
+        });
 
         $manager->flush();
     }
