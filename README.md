@@ -37,7 +37,8 @@ Nous avons décidez partir sur quelque chose de plus structuré pour nos Fixture
 
 # Pour la partie 1 :
 
-```public function findCatSpecial(int $id)
+``
+public function findCatSpecial(int $id)
 {
 return $this->createQueryBuilder('c')
 ->join('c.beers', 'b') // raisonner en terme de relation
@@ -47,7 +48,8 @@ return $this->createQueryBuilder('c')
 ->setParameter('term', 'special')
 ->getQuery()
 ->getResult();
-}```
+}
+``
 
 Cette fonction permet de rechercher les bières appertenant à une catégorie spéciale.
 (exemple : retrouver toutes les bières appartenant à la catégorie "bio")
