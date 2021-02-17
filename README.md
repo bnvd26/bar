@@ -28,9 +28,9 @@ Ensuite
 <br>
 Enfin lancez cette commande qui vas vous permettre de démarrer votre serveur :
 <br>
-```symfony server:start````
+```symfony server:start```
 <br>
-Enfin : [ici] : http://127.0.0.1:8000
+Enfin (tout dépend du port sur lequel vous avez démarrez votre serveur): http://127.0.0.1:8000
 # Fixtures
 
 Nous avons décidez partir sur quelque chose de plus structuré pour nos Fixtures pour cela nous avons séparé de façon à ce que chaque Entités ai sa propre Fixtures ceci permet notemment une meilleure organisation pour les dependances entre chacune d'entre elles.
