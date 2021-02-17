@@ -51,8 +51,7 @@ return $this->createQueryBuilder('c')
 }
 ```
 
-Cette fonction permet de rechercher les bières appertenant à une catégorie spéciale.
-(exemple : retrouver toutes les bières appartenant à la catégorie "bio")
+Voir réponse partie 4 car même question
 
 # Pour la partie 3 :
 
