@@ -118,13 +118,11 @@ class BarController extends AbstractController
      */
     public function partie4()
     {
-        // Ici on observe que la méthode fournit dans la partie 4 ne fonctionne pas comme il faut. 
-        // Effectivement elle devrait se trouver dans le BeerRepository car le paramètre $id est destiné
-        // à être l'id d'une biere et non pas l'id d'une categorie. 
-        // De plus le fait de mettre cette methode dans le CategoryRepository et non pas dans le BeerRepository, est faisable en soit mais porte à confusion
-        // étant donné que le paramètre qu'elle attend est l'id d'une Bière
-        // Enfin nous pensons que le fonctionnement global de cette methode était de s'assurer que la
-        // bière en question fait bien partie d'une catégorie avec le champ term = special
-        dd($this->categoryRepo->findCatSpecial(/* Saisir l'ID d'une biere et non pas d'une categorie*/));
+        // La methode attend en paramètre l'id d'une bière et non pas l'id d'une catégorie 
+        // Selon nous il aurait donc été préferable de mettre cette méthode dans le BeerRepository et non pas dans le CategoryRepository
+        // La methode permet de nous donner la catégorie de la bière passée en parametre seulement si la bière appartient une catégorie 
+        // dont le est a la champ term = "special"
+ 
+        dd($this->categoryRepo->findCatSpecial(/* Beer ID */));
     }
 }
